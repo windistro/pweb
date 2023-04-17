@@ -4,33 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="stylesheet" href="./css/style.css">
-
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Age calculator app</title>
 </head>
-<body class="bg-slate-200">
-  <div class="w-3/5 h-3/5 fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 items-center justify-center bg-white rounded-3xl rounded-br-[150px] pl-14 pt-14">
-    <div class="flex-col grid grid-cols-4 text-xl font-bold m-4 mb-8">
-      <div>
-        <label for="Day" name="Day" id="Day" class="tracking-widest text-slate-400">DAY</label>
-        <input type="number" id="Day" name="Day" class="border-slate-400 border-[1px] rounded-lg w-36 p-4" placeholder="DD">
+<body class="bg-slate-200 flex justify-center items-start pb-[10%]">
+  <div class="bg-white px-6 pt-[2.7rem] mt-[88px] mx-[4%]  rounded-3xl rounded-br-[6rem] max-w-[52.5rem] lg:mt-[10.8%] lg:pt-[3.2rem] lg:px-14 lg:rounded-br-[11.5rem]">
+    <div class="grid grid-cols-3 gap-4 relative pb-16 border-b-2 border-gray-500 lg:grid-cols-4 lg:gap-[2rem] lg:pb-12">
+      <div class="relative">
+        <label for="day" name="day"class="inline-block mb-1 lg:mb-2.5 tracking-widest text-slate-400">DAY</label>
+        <input type="text" id="day" name="day" class="border-slate-400 border-[1px] rounded-lg w-36 p-4 lg:text-3xl lg:py-[0.75rem] lg:px-[1.6rem]" maxlength="2" placeholder="DD" required>
+        <span id="day-err" class="block absolute text-red-500 text-sm"></span>
       </div>
-      <div>
-        <label for="Month" name="Month" id="Month" class="tracking-widest text-slate-400">MONTH</label>
-        <input type="number" id="Month" name="Month" class="border-slate-400 border-[1px] rounded-lg w-36 p-4" placeholder="MM">
+      <div class="relative">
+        <label for="month" name="month" class="inline-block mb-1 lg:mb-2.5 tracking-widest text-slate-400">MONTH</label>
+        <input type="text" id="month" name="month" class="border-slate-400 border-[1px] rounded-lg w-36 p-4 lg:text-3xl lg:py-[0.75rem] lg:px-[1.6rem]" maxlength="2" placeholder="MM" required>
+        <span id="month-err" class="block absolute text-red-500 text-sm"></span>
       </div>
-      <div>
-        <label for="Year" name="Year" id="Year" class="tracking-widest text-slate-400">YEAR</label>
-        <input type="number" id="Year" name="Year" class="border-slate-400 border-[1px] rounded-lg w-36 p-4" placeholder="YYYY">
+      <div class="relative">
+        <label for="year" name="year" class="inline-block mb-1 lg:mb-2.5 tracking-widest text-slate-400">YEAR</label>
+        <input type="text" id="year" name="year" class="border-slate-400 border-[1px] rounded-lg w-36 p-4 lg:text-3xl lg:py-[0.75rem] lg:px-[1.6rem]" maxlength="4" placeholder="YYYY" required>
+        <span id="year-err" class="block absolute text-red-500 text-sm"></span>
       </div>
+      <button type="submit" id="calculate" class="bg-[#854dff] cursor-pointer block absolute bottom-0 left-[50%] translate-x-[-50%] translate-y-[50%] rounded-full lg:right-0 lg:translate-x-[0%] lg:left-auto hover:bg-black active:bg-black">
+        <svg class="w-auto h-[1.6rem] inline-block p-[1.2rem]  stroke-2 box-content lg:h-[2.7rem] lg:p-[1.6rem]" xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
+      </button>
     </div>
-    <hr>
+    <div class="text-5xl font-extrabold italic pt-14 pb-12 lg:pt-[2.8rem] lg:pb-14">
+      <p class="lg:text-[6rem]"><span id="result-year" class="text-[#854dff]"> - - </span> years</p>
+      <p class="lg:text-[6rem]"><span id="result-month" class="text-[#854dff]"> - - </span> months</p>
+      <p class="lg:text-[6rem]"><span id="result-day" class="text-[#854dff]"> - - </span> days</p>
+    </div>
+    <p id="result"></p>
   </div>
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Hans Havilah</a>.
-  </div>
+  
+  <script src="script.js"></script>
 </body>
 </html>
