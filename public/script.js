@@ -26,14 +26,10 @@ function validateInput() {
         month.style.borderColor = "red";
         year.style.borderColor = "red";
         isValid = false;
-    } else if (inputDate > date) {
-        yearError.innerHTML = "Must be in the past";
-        year.style.borderColor = "red";
-        isValid = false;
     }
 
-    if (year.value > currentYear && inputDate < date) {
-        yearError.innerHTML = "Must be a valid year";
+    if (year.value > currentYear) {
+        yearError.innerHTML = "Must be in the past";
         year.style.borderColor = "red";
         isValid = false;
     }
