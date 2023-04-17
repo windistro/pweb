@@ -14,6 +14,7 @@ const currentMonth = date.getMonth() + 1;
 const currentDay = date.getDate();
 const currentYear = date.getFullYear();
 
+
 function validateInput() {
     let isValid = true;
     const inputDate = new Date(year.value, month.value - 1, day.value);
@@ -62,19 +63,27 @@ calculateButton.addEventListener("click", function () {
 
 function calculateAge(birthDate) {
     const today = new Date();
-    let years = today.getFullYear() - birthDate.getFullYear();
-    let months = today.getMonth() - birthDate.getMonth();
-    let days = today.getDate() - birthDate.getDate();
-  
-    if (months < 0 || (months === 0 && days < 0)) {
-      years--;
-      months = 12 - Math.abs(months);
-      days = 31 - Math.abs(days);
-    } else if (months > 0 && days < 0) {
-      months--;
-      const monthDate = new Date(today.getFullYear(), today.getMonth() - 1, 0);
-      days = monthDate.getDate() - Math.abs(days);
+    const month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let d1 = birthDate.getDate();
+    let m1 = birthDate.getMonth();
+    let y1 = birthDate.getFullYear();
+
+    let d2 = today.getDate();
+    let m2 = today.getMonth();
+    let y2 = today.getFullYear();
+
+    if(d1 > d2){
+        d2 = d2 + month[m2 - 1];
+        m2 = m2 - 1;
+      }
+    if(m1 > m2){
+    m2 = m2 + 12;
+    y2 = y2 - 1;
     }
+
+    let years = y2 - y1;
+    let months = m2 - m1;
+    let days = d2 - d1;
   
     return { years: years, months: months, days: days };
 }
